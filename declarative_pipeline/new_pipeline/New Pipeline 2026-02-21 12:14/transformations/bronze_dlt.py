@@ -1,7 +1,6 @@
 from pyspark import pipelines as dp
 from pyspark.sql.functions import *
-from word2number import w2n
-@dp.table(name="bronze_staff_data1")
+@dp.table(name="bronze_staff_data2")
 def bronze_staff_data():
     #base_path is defined in configuration(setting)
     base_path1 = spark.conf.get("base_path") 
@@ -13,7 +12,7 @@ def bronze_staff_data():
             .load(f"{base_path1}/staff"))
 
 
-@dp.table(name="bronze_geotag_data1")
+@dp.table(name="bronze_geotag_data2")
 def bronze_geotag_data():
 
     return (
@@ -25,7 +24,7 @@ def bronze_geotag_data():
     )
 
 
-@dp.table(name="bronze_shipments_data1")
+@dp.table(name="bronze_shipments_data2")
 def bronze_shipments_data():
 
     return (
